@@ -1,5 +1,3 @@
-% database
-
 belongs_to(Elem, [Elem|_]).
 belongs_to(Elem, [_|Y]) :- belongs_to(Elem, Y).
 
