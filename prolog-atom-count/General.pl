@@ -15,7 +15,9 @@ concatSharedElements(A, B, C) :- sharedElements(A, B, X), sharedElements(B, A, Y
 removeAll(_,[],[],0):- !.
 removeAll(Elem,[Elem|T],L,N):- removeAll(Elem,T,L,N1), N is N1+1, !.
 removeAll(Elem,[X|T1],[X|T2],N):- removeAll(Elem,T1,T2,N).
+
 countElem([],[]):- !.
 countElem([X|T],[[X,N]|C]):- removeAll(X,[X|T],L,N), countElem(L,C).
 
-countAtoms(L1, L2, Lout):- removeSubList(L1,L1mod), removeSubList(L2,L2mod), concatSharedElements(L1mod, L2mod, L), countElem(L,Lout).
+conta_atomos(L1, L2, Lout):- removeSubList(L1,L1mod), removeSubList(L2,L2mod), concatSharedElements(L1mod, L2mod, L), countElem(L,Lout).
+conta_atomos_read(L1, L2, Lout):- read(L1), read(L2), conta_atomos(L1, L2, Lout).
